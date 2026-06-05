@@ -36,7 +36,7 @@ function removeFromCart(productId) {
   });
   // Also update card border
   var card = document.getElementById('card-' + productId);
-  if (card) card.classList.remove('in-cart');
+  if (card) card.classList.remove('in-cart'); 
 }
 
 function isInCart(productId) {
