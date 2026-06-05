@@ -97,6 +97,23 @@
       <span class="section-label">What We Offer</span>
       <h2>OUR GADGETS</h2>
     </div>
+    
+    <!-- ===== FILTER SECTION ===== -->
+    <div class="filter-container">
+      <div class="filter-wrapper">
+        <span class="filter-label">Filter By:</span>
+        <div class="filter-buttons" id="filterButtons">
+          <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+          <button class="filter-btn" onclick="filterProducts('Phones')">Phones</button>
+          <button class="filter-btn" onclick="filterProducts('Computers')">Computers</button>
+          <button class="filter-btn" onclick="filterProducts('Gaming')">Gaming</button>
+          <button class="filter-btn" onclick="filterProducts('Audio')">Audio</button>
+          <button class="filter-btn" onclick="filterProducts('Wearables')">Wearables</button>
+          <button class="filter-btn" onclick="filterProducts('TVs')">TVs</button>
+        </div>
+      </div>
+    </div>
+    
     <div class="products-grid" id="productsGrid">
 
       <div class="product-card" id="card-p1">

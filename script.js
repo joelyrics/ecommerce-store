@@ -18,6 +18,7 @@ function toggleCart(productId) {
   } else {
     addToCart(productId);
   }
+  
   updateCartButton();
   updateProductButton(productId);
 }

@@ -251,12 +251,56 @@ header {
 }
 
 .shop-header {
-  text-align: center; margin-bottom: 3.5rem;
+  text-align: center; margin-bottom: 2.5rem;
 }
 .shop-header h2 {
   font-family: 'Bebas Neue', cursive;
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--dark); letter-spacing: 3px;
+}
+
+/* =============================================
+   FILTER SECTION
+   ============================================= */
+.filter-container {
+  margin-bottom: 3rem;
+  display: flex; justify-content: center;
+}
+
+.filter-wrapper {
+  display: flex; align-items: center; gap: 1.5rem;
+  flex-wrap: wrap; justify-content: center;
+}
+
+.filter-label {
+  font-weight: 700; color: var(--dark);
+  font-size: 0.95rem; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.filter-buttons {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: var(--light-bg);
+  color: var(--text); border: 2px solid var(--border);
+  padding: 10px 18px; border-radius: 25px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.5px; cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--orange); color: var(--orange);
+}
+
+.filter-btn.active {
+  background: var(--orange); color: var(--white);
+  border-color: var(--orange);
 }
 
 .products-grid {
@@ -272,7 +316,8 @@ header {
   overflow: hidden;
   background: var(--white);
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  animation: fadeIn 0.3s ease;
 }
 .product-card:hover {
   transform: translateY(-6px);
@@ -281,6 +326,14 @@ header {
 .product-card.in-cart {
   outline: 3px solid var(--red);
   outline-offset: 2px;
+}
+.product-card.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .product-img-wrap {
