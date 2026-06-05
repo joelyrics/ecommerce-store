@@ -7,6 +7,7 @@ var cart = [];       // Array of { product, quantity }
 var user = {};       // { name, email, phone }
 var mouseX = 0;      // Mouse X position
 var mouseY = 0;      // Mouse Y position
+var currentFilter = 'all'; // Current active filter
 
 // =============================================
 //  CART TOGGLE (Add / Remove from landing page)
@@ -18,7 +19,7 @@ function toggleCart(productId) {
   } else {
     addToCart(productId);
   }
-  
+
   updateCartButton();
   updateProductButton(productId);
 }
@@ -51,47 +52,33 @@ function getProduct(productId) {
 }
 
 // =============================================
-//  UPDATE UI
+//  FILTER PRODUCTS
 // =============================================
-function updateCartButton() {
-  document.getElementById('cartCount').textContent = cart.length;
-}
-
-function updateProductButton(productId) {
-  var btn  = document.getElementById('btn-' + productId);
-  var card = document.getElementById('card-' + productId);
-  if (!btn) return;
-
-  if (isInCart(productId)) {
-    btn.textContent = 'REMOVE FROM CART';
-    btn.classList.add('remove-btn');
-    if (card) card.classList.add('in-cart');
-  } else {
-    btn.textContent = 'ADD TO CART';
-    btn.classList.remove('remove-btn');
-    if (card) card.classList.remove('in-cart');
-  }
-}
-
-function updateAllProductButtons() {
-  products.forEach(function (p) {
-    updateProductButton(p.id);
+function filterProducts(category) {
+  currentFilter = category;
+  
+  // Update active button
+  var buttons = document.querySelectorAll('.filter-btn');
+  buttons.forEach(function (btn) {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Filter products
+  var cards = document.querySelectorAll('.product-card');
+  cards.forEach(function (card) {
+    var productId = card.id.replace('card-', '');
+    var product = getProduct(productId);
+    
+    if (category === 'all' || (product && product.category === category)) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
   });
 }
-
-// =============================================
-//  CART MODAL
-// =============================================
-function openCart() {
-  renderCartTable();
-  document.getElementById('cartOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeCart() {
-  document.getElementById('cartOverlay').classList.remove('active');
   document.body.style.overflow = '';
-}
+
 
 function handleOverlayClick(event) {
   if (event.target === document.getElementById('cartOverlay')) {

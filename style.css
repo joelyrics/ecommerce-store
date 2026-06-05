@@ -636,6 +636,8 @@ header {
   .about-inner { flex-direction: column; gap: 2.5rem; text-align: center; }
   .about-stats { justify-content: center; }
   .about-image-wrap { display: none; }
+  .filter-buttons { gap: 0.6rem; }
+  .filter-btn { padding: 9px 16px; font-size: 0.8rem; }
 }
 
 @media (max-width: 600px) {
@@ -649,4 +651,9 @@ header {
   .footer-inner { flex-direction: column; text-align: center; }
   .cart-table { font-size: 0.8rem; }
   .qty-cell { gap: 4px; }
+  .filter-wrapper { flex-direction: column; gap: 1rem; }
+  .filter-label { width: 100%; text-align: center; }
+  .filter-buttons { width: 100%; gap: 0.5rem; }
+  .filter-btn { flex: 1; min-width: 65px; padding: 8px 12px; font-size: 0.7rem; }
+  .shop-section { padding: 80px 4%; }
 }
