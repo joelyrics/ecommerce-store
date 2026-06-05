@@ -653,7 +653,7 @@ header {
   .qty-cell { gap: 4px; }
   .filter-wrapper { flex-direction: column; gap: 1rem; }
   .filter-label { width: 100%; text-align: center; }
-  .filter-buttons { width: 100%; gap: 0.5rem; }
-  .filter-btn { flex: 1; min-width: 65px; padding: 8px 12px; font-size: 0.7rem; }
+  .filter-buttons { width: 100%; gap: 0.4rem; }
+  .filter-btn { padding: 7px 10px; font-size: 0.65rem; white-space: normal; }
   .shop-section { padding: 80px 4%; }
 }
