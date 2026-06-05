@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMS — The E-Millenial Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- ===== POINTER FOLLOWER ===== -->
+  <div class="pointer-follower" id="pointerFollower"></div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header id="home">
+    <nav class="navbar">
+      <div class="logo">EMS</div>
+      <ul class="nav-links">
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#shop">Shop</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== INTRO SECTION ===== -->
+  <section class="intro-section" id="intro">
+    <div class="intro-content">
+      <p class="intro-tag">Next-gen gadgets for Africa's generation</p>
+      <h1 class="intro-heading">
+        THE<br/>
+        <span class="highlight">E-MILLENIAL</span><br/>
+        STORE
+      </h1>
+      <p class="intro-sub">Premium gadgets delivered to your doorstep across Africa. Shop smart, live smart.</p>
+      <a href="#shop" class="btn-primary">Shop Now</a>
+    </div>
+    <div class="intro-visual">
+      <div class="floating-card card-1">
+        <i class="fas fa-laptop"></i>
+        <span>MacBook Air</span>
+      </div>
+      <div class="floating-card card-2">
+        <i class="fas fa-mobile-alt"></i>
+        <span>Pixel 4a</span>
+      </div>
+      <div class="floating-card card-3">
+        <i class="fas fa-headphones"></i>
+        <span>Air Pods</span>
+      </div>
+      <div class="floating-card card-4">
+        <i class="fas fa-gamepad"></i>
+        <span>PS 5</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <span class="section-label">Who We Are</span>
+        <h2>Built for Africa's<br/><em>Digital Generation</em></h2>
+        <p>EMS. The E-Millenial Store — is your one-stop destination for premium gadgets and tech accessories. We believe every African millennial deserves access to the latest technology at competitive prices.</p>
+        <p>From smartphones to smart TVs, gaming consoles to wearables — we've got you covered. Fast delivery, genuine products, seamless checkout.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Products</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Genuine</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">GHS</span>
+            <span class="stat-label">Local Currency</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image-wrap">
+        <div class="about-image-blob">
+          <i class="fas fa-store about-icon"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP SECTION ===== -->
+  <section class="shop-section" id="shop">
+    <div class="shop-header">
+      <span class="section-label">What We Offer</span>
+      <h2>OUR GADGETS</h2>
+    </div>
+    <div class="products-grid" id="productsGrid">
+
+      <div class="product-card" id="card-p1">
+        <div class="product-img-wrap">
+          <img src="OIP (8).webp" alt="Samsung TV" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵500,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>SAMSUNG TV</h3>
+          <button class="add-cart-btn" id="btn-p1" onclick="toggleCart('p1')">ADD TO CART</button>
+        </div>
+      </div>
+
+      <div class="product-card" id="card-p2">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80" alt="Pixel 4a" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵250,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>PIXEL 4a</h3>
+          <button class="add-cart-btn" id="btn-p2" onclick="toggleCart('p2')">ADD TO CART</button>
+        </div>
+      </div>
+
+      <div class="product-card" id="card-p3">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&q=80" alt="PS 5" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵300,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>PS 5</h3>
+          <button class="add-cart-btn" id="btn-p3" onclick="toggleCart('p3')">ADD TO CART</button>
+        </div>
+      </div>
+
+      <div class="product-card" id="card-p4">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80" alt="MacBook Air" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵800,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>MACBOOK AIR</h3>
+          <button class="add-cart-btn" id="btn-p4" onclick="toggleCart('p4')">ADD TO CART</button>
+        </div>
+      </div>
+
+      <div class="product-card" id="card-p5">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&q=80" alt="Apple Watch" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵95,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>APPLE WATCH</h3>
+          <button class="add-cart-btn" id="btn-p5" onclick="toggleCart('p5')">ADD TO CART</button>
+        </div>
+      </div>
+
+      <div class="product-card" id="card-p6">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&q=80" alt="Air Pods" />
+          <div class="price-overlay">
+            <span class="overlay-label">Price</span>
+            <span class="overlay-price">₵75,000</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>AIR PODS</h3>
+          <button class="add-cart-btn" id="btn-p6" onclick="toggleCart('p6')">ADD TO CART</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">EMS</div>
+      <p class="footer-text">© 2026 The E-Millenial Store. All rights reserved. Built for Africa's digital generation.</p>
+    </div>
+  </footer>
+
+  <!-- ===== CART MODAL ===== -->
+  <div class="modal-overlay" id="cartOverlay" onclick="handleOverlayClick(event)">
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-modal-header">
+        <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+        <button class="close-modal-btn" onclick="closeCart()"><i class="fas fa-times"></i></button>
+      </div>
+
+      <!-- Items Section -->
+      <div class="cart-items-section">
+        <table class="cart-table" id="cartTable">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Item</th>
+              <th>Price (₵)</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cartTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+        <p class="empty-cart-msg" id="emptyCartMsg">Your cart is empty. Go add some gadgets!</p>
+      </div>
+
+      <!-- User Details Section -->
+      <div class="user-details-section">
+        <h3>Your Details</h3>
+        <div class="form-group">
+          <input type="text" id="userName" placeholder="Your Name" onblur="validateName()" />
+          <span class="field-error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" id="userEmail" placeholder="Your Email" onblur="validateEmail()" />
+          <span class="field-error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="userPhone" placeholder="Your Phone Number" onblur="validatePhone()" />
+          <span class="field-error" id="phoneError"></span>
+        </div>
+      </div>
+
+      <!-- Total Section -->
+      <div class="total-section">
+        <span>Total Amount to be Paid</span>
+        <strong id="cartTotal">₵0</strong>
+      </div>
+
+      <!-- Actions Section -->
+      <div class="cart-actions">
+        <button class="btn-secondary" onclick="closeCart()">Continue Shopping</button>
+        <button class="btn-primary" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY MODAL ===== -->
+  <div class="modal-overlay" id="summaryOverlay">
+    <div class="summary-modal" id="summaryModal">
+      <div class="summary-check">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2 id="summaryTitle">Thank You!</h2>
+      <h3>Summary</h3>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Item</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="summaryTableBody">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+      <button class="btn-primary summary-ok" onclick="closeSummary()">Ok</button>
+    </div>
+  </div>
+
+  <!-- Paystack -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
