@@ -412,6 +412,8 @@ function closeMenu() {
 // =============================================
 //  POINTER FOLLOWER
 // =============================================
+var pointerClickTimeout = null;
+
 document.addEventListener('mousemove', function (e) {
   var follower = document.getElementById('pointerFollower');
   if (follower) {
@@ -420,24 +422,95 @@ document.addEventListener('mousemove', function (e) {
   }
 });
 
-// Grow on hover over interactive elements
+// Hover over interactive elements
 document.addEventListener('mouseover', function (e) {
   var follower = document.getElementById('pointerFollower');
   if (!follower) return;
   var tag = e.target.tagName.toLowerCase();
   var isInteractive = ['a','button','input'].includes(tag) ||
     e.target.classList.contains('product-card') ||
-    e.target.classList.contains('filter-btn');
+    e.target.classList.contains('filter-btn') ||
+    e.target.classList.contains('cart-btn') ||
+    e.target.classList.contains('btn-primary') ||
+    e.target.classList.contains('btn-secondary') ||
+    e.target.classList.contains('btn-ghost');
+  
   if (isInteractive) {
     follower.style.width  = '60px';
     follower.style.height = '60px';
     follower.style.opacity = '0.6';
+    follower.classList.add('pointer-hover');
   } else {
     follower.style.width  = '36px';
     follower.style.height = '36px';
     follower.style.opacity = '1';
+    follower.classList.remove('pointer-hover');
   }
 });
+
+// Remove hover state when leaving interactive elements
+document.addEventListener('mouseout', function (e) {
+  var follower = document.getElementById('pointerFollower');
+  if (!follower) return;
+  follower.classList.remove('pointer-hover');
+  follower.style.width  = '36px';
+  follower.style.height = '36px';
+  follower.style.opacity = '1';
+});
+
+// Click animation and particle burst
+document.addEventListener('click', function (e) {
+  var follower = document.getElementById('pointerFollower');
+  if (!follower) return;
+  
+  // Prevent multiple rapid clicks from stacking animations
+  if (pointerClickTimeout) clearTimeout(pointerClickTimeout);
+  
+  // Remove previous click animation
+  follower.classList.remove('pointer-click');
+  
+  // Trigger reflow to restart animation
+  void follower.offsetWidth;
+  
+  // Add click animation
+  follower.classList.add('pointer-click');
+  
+  // Create particle burst
+  createParticleBurst(e.clientX, e.clientY);
+  
+  // Remove click class after animation completes
+  pointerClickTimeout = setTimeout(function () {
+    follower.classList.remove('pointer-click');
+  }, 400);
+});
+
+// Create particle burst effect
+function createParticleBurst(x, y) {
+  var particleCount = 8;
+  var angleSlice = (Math.PI * 2) / particleCount;
+  
+  for (var i = 0; i < particleCount; i++) {
+    var angle = angleSlice * i;
+    var vx = Math.cos(angle) * 80; // Distance particles travel
+    var vy = Math.sin(angle) * 80;
+    
+    var particle = document.createElement('div');
+    particle.className = 'pointer-particle';
+    particle.style.left = x + 'px';
+    particle.style.top = y + 'px';
+    particle.style.setProperty('--tx', vx + 'px');
+    particle.style.setProperty('--ty', vy + 'px');
+    particle.style.animation = 'particleBurst 0.6s ease-out forwards';
+    
+    document.body.appendChild(particle);
+    
+    // Remove particle after animation
+    setTimeout(function () {
+      particle.remove();
+    }, 600);
+  }
+}
+
 
 // =============================================
 //  SCROLL REVEAL
